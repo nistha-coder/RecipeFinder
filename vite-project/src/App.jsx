@@ -1,30 +1,25 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Categories from './pages/Categories';
+import Favorites from './pages/Favorites';
+import CreateYourOwn from './pages/CreateYourOwn';
+import RecipeDetail from './pages/RecipeDetail';
 
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import './App.css'
-import  Navbar  from "./components/Navbar"
-
-import Home from "./components/Home"
-import Start from "./components/Start"
-import Categories from "./components/Categories"
-import About from "./components/About"
-
-export default function App() {
-  
+const App = () => {
   return (
-    <>
-      <BrowserRouter>
-      <Navbar/>
-        <Routes>
-        <Route path="/home" element={<><Home /></>} />
-        <Route path="/about" element={<About />} />
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/quiz" element={<Start/>} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/create-your-own" element={<CreateYourOwn />} />
+        <Route path="/recipe/:id" element={<RecipeDetail />} />
+      </Routes>
+    </Router>
+  );
+};
 
-        </Routes>
-      </BrowserRouter>
-        
-    </>
-  )
-}
-
-
+export default App;

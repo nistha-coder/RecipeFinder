@@ -1,51 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from '../assets/Logo.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 p-4 shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-white text-3xl font-bold">
-         <NavLink
-            to="/home" ><img className="h-16 w-auto" src={logo} alt="Logo" /> </NavLink>
-        </div>
-
-        {/* Menu */}
-        <div className="space-x-4">
-          <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              `text-white text-2xl hover:text-gray-300 transition duration-300 ${isActive ? 'text-yellow-300' : ''}`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `text-white text-2xl hover:text-gray-300 transition duration-300 ${isActive ? 'text-yellow-300' : ''}`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/categories"
-            className={({ isActive }) =>
-              `text-white text-2xl hover:text-gray-300 transition duration-300 ${isActive ? 'text-yellow-300' : ''}`
-            }
-          >
-            Categories
-          </NavLink>
-          <NavLink
-            to="/quiz"
-            className={({ isActive }) =>
-              `text-white text-2xl hover:text-gray-300 transition duration-300 ${isActive ? 'text-yellow-300' : ''}`
-            }
-          >
-            Start Quiz
-          </NavLink>
+    <nav className="bg-blue-600 text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold">RecipeFinder</Link>
+        <div className="space-x-6">
+          <Link to="/" className="hover:text-gray-200">Home</Link>
+          <Link to="/categories" className="hover:text-gray-200">Categories</Link>
+          <Link to="/favorites" className="hover:text-gray-200">Favorites</Link>
+          <Link to="/create-your-own" className="hover:text-gray-200">Create Your Own</Link>
         </div>
       </div>
     </nav>
